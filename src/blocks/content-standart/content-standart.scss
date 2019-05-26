@@ -1,0 +1,156 @@
+// В этом файле должны быть стили для БЭМ-блока test1, его элементов,
+
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+
+.content-standart {
+  // общие стили
+
+  p  {
+    margin: 0.5em 0 1.4em;
+    max-width: 900px;
+  }
+
+  h3, h4, h5, h6 {
+    font-size: 28px;
+    line-height: 33px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  blockquote {
+    font-style: italic;
+    color: #9d0e52;
+  }
+
+  li {
+    position: relative;
+    padding-left: 20px;
+    margin: 10px 0;
+    list-style-type: none;
+  }
+
+  ol {
+    counter-reset: li; /* Инициализируем счетчик */
+    margin-top: 10px;
+    padding: 0;
+    > li {
+      &:before {
+        position: absolute;
+        left: 0;
+        content:counter(li)+". "; /* В качестве данных используем счетчик */
+        counter-increment:li; /* Увеличиваем значение счетчика на 1 */
+      }
+    }
+  }
+
+  ul {
+    margin-top: 10px;
+    padding-left: 0;
+    > li {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        left: 0;
+        top: 0.50em;
+        background-color: #d1d1d1;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  h3 + ul, h4 + ul, h5 + ul, h6 + ul,
+  h3 + ol, h4 + ol, h5 + ol, h6 + ol {
+    margin-top: 10px;
+  }
+
+  p + ul, p + ol {
+    margin-top: -20px;
+  }
+
+  table {
+    background-color: #6d7179;
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+
+  tr {
+    background-color: #515762;
+    &:nth-child(2n) {
+      background-color: #484e58;
+    }
+  }
+
+  th {
+    background-color: #3a3e46;
+    padding: 15px 25px;
+    text-align: center;
+    font-weight: inherit;
+  }
+
+  td {
+    padding: 15px 25px;
+    text-align: center;
+  }
+
+
+  // десктопный вариант
+  @media screen and (min-width: ($desktop-min-width)) {
+  }
+
+  // коррекция десктопного варианта для широких экранов
+  @media screen and (min-width: ($wide-min-width)) {
+  }
+
+  // планшетный вариант
+  @media screen and (min-width: ($tab-min-width)) and (max-width: $tab-max-width)  {
+  }
+
+  // мобильный вариант
+  @media screen and (max-width: $mobile-max-width)  {
+
+    h1 {
+      font-size: 32px;
+      line-height: 45px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 35px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 700;
+    }
+
+    main {
+      font-size: 18px;
+      line-height: 23px;
+    }
+
+    .content-standart {
+      h3, h4, h5, h6 {
+        font-size: 28px;
+        line-height: 33px;
+        font-weight: 400;
+      }
+
+      table {
+        // display: block;
+      }
+
+      td, th {
+        // display: inline-block;
+        padding: 10px 10px;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Стартовый проект с gulp  
 
-Оcнован на стартовом репозитоии Николая Громова [NTH-start-project](https://github.com/nicothin/NTH-start-project) с модификациями
+Оcнован на стартовом репозитоии Николая Громова [NTH-start-project](https://github.com/nicothin/NTH-start-project) с модификациями (форк от 25.05.2019)
 
 
 ## Парадигма
