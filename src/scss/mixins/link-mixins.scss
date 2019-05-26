@@ -1,0 +1,82 @@
+// link mixins
+
+@mixin link-basic($link-color-basic: $link-color, $link-color-hover: $link-color--hover) {
+  color: $link-color-basic;
+  text-decoration: none;
+  border-bottom: 1px solid opacify($link-color-basic, 0.3);
+  &:hover,
+  &:focus {
+    color: $link-color-hover;
+    border-bottom: 1px solid opacify($link-color-hover, 0.3);
+  }
+}
+
+@mixin link-basic-mono($link-color-basic: $link-color) {
+  color: $link-color-basic;
+  text-decoration: none;
+  // border-bottom: 1px solid opacify($link-color-hover, 0.3);
+}
+
+@mixin link-dashed($link-color-basic: $link-color, $link-color-hover: $link-color--hover) {
+  color: $link-color-basic;
+  text-decoration: none;
+  border-bottom: 1px dashed opacify($link-color-basic, 0.3);
+  &:hover {
+    color: $link-color-hover;
+    border-bottom: 1px dashed opacify($link-color-basic, 0.3);
+  }
+}
+
+@mixin link-dashed-mono($link-color-basic: $link-color) {
+  color:$link-color-basic;
+  text-decoration: none;
+  border-bottom: 1px dashed opacify($link-color-basic, 0.3);
+}
+
+
+@mixin no-link($nolink-color: inherit) {
+  text-decoration: none;
+  border-bottom: none;
+  // cursor: default;
+  color: $nolink-color;
+  &:hover,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    border-bottom: none;
+    // cursor: default;
+    color: $nolink-color;
+  }
+}
+
+// link rule
+
+a {
+  @include link-basic();
+  background-color: transparent;
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: $link-color--hover;
+  }
+
+  // &:visited {
+  //   color: $link-color--hover;
+  // }
+
+  &[href^="tel:"] {
+
+    // На больших экранах телефоны-ссылки делаем обычным текстом
+    @media (min-width: $screen-xl) {
+      white-space: nowrap;
+      pointer-events: none;
+      text-decoration: inherit;
+      color: inherit;
+    }
+  }
+}
+
+a.no-link {
+  @include no-link();
+}

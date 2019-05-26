@@ -1,0 +1,128 @@
+.body-wrapper {
+  max-width: $body-wrapper-desktop-max-width;
+  margin: 0 auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex-grow: 2;
+  }
+}
+
+.only-desktop, .only-desktop-ib, .only-desktop-i,
+.only-tab, .only-tab-ib, .only-tab-i,
+.only-mobile, .only-mobile-ib, .only-mobile-i {
+  display: none !important;
+}
+
+// десктопный вариант
+@media screen and (min-width: ($desktop-min-width)) {
+  .container {
+    // width: 1000px;
+    max-width: $container-desktop-max-width;
+    min-width: $container-desktop-min-width;
+    padding-left: $container-desktop-padding;
+    padding-right: $container-desktop-padding;
+    margin: 0 auto;
+  }
+
+  body {
+  }
+
+  .body-wrapper {
+    padding: 0 $body-wrapper-desktop-padding;
+    background: url("/app/build/img/shared/main-bg.jpg") 50% 0 no-repeat;
+  }
+
+  .no-desktop {
+    display: none !important;
+  }
+
+  .only-desktop {
+    display: block !important;
+  }
+
+  .only-desktop-i {
+    display: inline !important;
+  }
+
+  .only-desktop-ib {
+    display: inline-block !important;
+  }
+
+
+}
+
+
+// таблетный вариант
+@media screen and (min-width: $tab-min-width) and (max-width: $tab-max-width)  {
+  .container {
+    // width: 760px;
+    max-width: $container-tab-max-width;
+    min-width: $container-tab-min-width;
+    padding-left: $container-tab-padding;
+    padding-right: $container-tab-padding;
+    margin: 0 auto;
+  }
+
+  .no-tab {
+    display: none !important;
+  }
+
+  .only-tab {
+    display: block !important;
+  }
+
+  .only-tab-i {
+    display: inline !important;
+  }
+
+  .only-tab-ib {
+    display: inline-block !important;
+  }
+
+  .body-wrapper {
+    position: relative;
+    padding: 0 $body-wrapper-tab-padding;
+  }
+
+}
+
+
+// мобильный вариант
+@media screen and (max-width: $mobile-max-width) {
+
+  .container,
+  .mobile-container {
+    max-width: $container-mobile-max-width;
+    min-width: $container-mobile-min-width;
+    padding-left: $container-mobile-padding;
+    padding-right: $container-mobile-padding;
+    margin: 0 auto;
+  }
+
+  .no-mobile {
+    display: none !important;
+  }
+
+  .only-mobile {
+    display: block !important;
+  }
+
+  .only-mobile-i {
+    display: inline !important;
+  }
+
+  .only-mobile-ib {
+    display: inline-block !important;
+  }
+
+  .body-wrapper {
+    position: relative;
+    padding: 0 $body-wrapper-mobile-padding;
+    max-width: $body-wrapper-mobile-max-width;
+  }
+
+
+}
