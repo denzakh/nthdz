@@ -1,0 +1,163 @@
+// В этом файле должны быть стили для БЭМ-блока test1, его элементов,
+
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+
+.typo-mini__img-columns {
+  margin: 30px 0;
+  & > * {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    min-width: 290px;
+    padding-right: 10px;
+    img {
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    span {
+      flex-shrink: 100;
+    }
+  }
+}
+
+.typo-mini__numbers {
+  margin: 30px 0;
+  & > * {
+    display: inline-flex;
+    vertical-align: top;
+    min-width: 290px;
+    max-width: 400px;
+    margin: 10px 0;
+    padding-right: 20px;
+    span:first-of-type {
+      display: inline-block;
+      margin: 10px;
+      margin-left: 0;
+      margin-right: 20px;
+      font-size: 60px;
+      font-weight: 300;
+    }
+    span:nth-child(2) {
+      display: inline-flex;
+      vertical-align: top;
+      align-items: center;
+    }
+  }
+}
+
+.typo-mini__figure {
+  margin: 10px 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  & > figure {
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 0;
+    margin-right: 30px;
+    p:first-of-type {
+    }
+    figcaption {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+}
+
+.typo-mini__figure {
+  &.w100 {
+    & > figure {
+      width: 100px;
+    }
+  }
+  &.w150 {
+    & > figure {
+      width: 150px;
+    }
+  }
+  &.w200 {
+    & > figure {
+      width: 200px;
+    }
+  }
+  &.w250 {
+    & > figure {
+      width: 250px;
+    }
+  }
+  &.w300 {
+    & > figure {
+      width: 300px;
+    }
+  }
+  &.w350 {
+    & > figure {
+      width: 350px;
+    }
+  }
+  &.w400 {
+    & > figure {
+      width: 400px;
+    }
+  }
+}
+
+.typo-mini__img-columns.round,
+.typo-mini__numbers.round,
+.typo-mini__figure.round {
+  img {
+    border-radius: 50%;
+    border: none;
+  }
+}
+
+.typo-mini__figure.edge {
+  margin-top: 10px;
+  & > figure {
+    width: 250px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  img {
+    border-radius: 50%;
+    border: none;
+  }
+  figcaption {
+    display: block;
+    margin: 5px 0;
+    margin-top: 10px;
+  }
+}
+
+.typo-mini__img-columns.no-border,
+.typo-mini__numbers.no-border,
+.typo-mini__figure.no-border {
+  img {
+    border: none!important;
+  }
+}
+
+.typo-mini__2columns {
+  display: flex;
+  flex-wrap: wrap;
+  & > div {
+    width: 50%;
+    flex-grow: 2;
+    min-width: 300px;
+    margin-bottom: 0;
+    img {
+      max-width: auto;
+      min-width: 100%;
+    }
+  }
+}
+
+.typo-mini__all-box {}
+
+.typo-mini__all-link {
+  .link-basic();
+  font-weight: 700;
+}
